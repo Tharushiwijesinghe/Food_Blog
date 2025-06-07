@@ -1,0 +1,27 @@
+.about-page {
+  background: #fffefb;
+  border-radius: 12px;
+  padding: 30px;
+  color: #333;
+}
+
+.about-page h2 {
+  color: #f58d17;
+}
+
+.about-page ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.about-page button.btn-warning {
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.about-page button.btn-warning:hover {
+  background-color: #e07c00;
+  color: #fff;
+}

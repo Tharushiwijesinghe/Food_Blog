@@ -1,0 +1,35 @@
+/* Navbar.css */
+.navbar {
+  background-color: transparent !important; 
+  padding: 1rem 0;
+  margin: 0;
+  box-shadow: none; /* Optional: remove shadow for cleaner overlay */
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it stays on top of the hero image */
+}
+
+.navbar-brand span {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color:  #F58d17; /* White for visibility on dark image */
+}
+
+.nav-link {
+  color: #F58d17 !important;
+  margin-left: 1rem;
+  transition: color 0.3s ease;
+  text-shadow: #b08657;
+}
+
+.nav-link:hover {
+  color: #b08657 !important;
+}
+
+.active-link {
+  color: #F58d17 !important;
+  border-bottom: 2px solid #F58d17; /* Highlight active link */
+  padding-bottom: 2px;
+}
+

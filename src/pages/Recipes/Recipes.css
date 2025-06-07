@@ -1,0 +1,121 @@
+
+.card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #3e3e3e;
+}
+
+.card-text {
+  color: #555;
+  font-size: 0.95rem;
+  min-height: 80px;
+}
+
+.RMbtn {
+  background-color: #F58d17;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+.RMbtn:hover {
+  background-color: #e67e00;
+  color: white;
+}
+
+.recipe-assistant-container {
+  background-color: #f0fff4;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  animation: fadeIn 1.5s ease-in;
+  box-shadow: #F58d17;
+}
+.assistant-title {
+  overflow: hidden;
+  border-right: 2px solid #F58d17;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 2px;
+  animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+  width: max-content;
+  color: #F58d17;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* @keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #F58d17 }
+} */
+
+
+.assistant-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  margin: auto;
+  display: block;
+}
+
+.assistant-button {
+  background-color: #F58d17;
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.assistant-button:hover {
+  background-color: #F58d17;
+}
+
+.assistant-answer {
+  background-color: #e0f7e9;
+  padding: 15px;
+  border-radius: 10px;
+  color: #333;
+  font-size: 16px;
+}
+
+.assistant-footer {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+

@@ -1,0 +1,14 @@
+.contact-page {
+  background-color: #fdfdfd;
+  border-radius: 10px;
+}
+
+.contact-page a {
+  text-decoration: none;
+  color: #F58d17;
+}
+
+.contact-page a:hover {
+  text-decoration: underline;
+}
+
