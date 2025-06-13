@@ -8,6 +8,13 @@ import Recipes from './pages/Recipes/Recipes';
 import Admin from './pages/Admin/Admin';// Adjust the path as necessary
 import Footer from './Components/Footer/Footer';
 import RecipeDetail from './pages/Recipes/RecipeDetail';
+import AdminRecipes from './pages/Admin/AdminRecipes';
+
+
+import AddRecipe from './pages/Admin/AddRecipe';
+
+import { Navigate } from 'react-router-dom';
+import { isAuthenticated } from './utils/auth';
 
 
 // const Home = () => <h2>Home Page</h2>;
@@ -25,9 +32,17 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/recipes" element={<Recipes />} />
           <Route path="/recipes/:title" element={<RecipeDetail />} />
+          <Route path="/admin/recipes" element={<AdminRecipes />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/recipes" element={isAuthenticated() ? <AdminRecipes /> : <Navigate to="/admin" />} />
+          
+         
+
+<Route path="/admin/recipes" element={<AdminRecipes />} />
+<Route path="/admin/recipes/new" element={<AddRecipe />} />
+
         </Routes>
       </div>
       <Footer />

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import profileImage from "../../assets/p65.avif"
+import profileImage from "../../assets/p65.avif";
+import './About.css';
+
 
 
 const About = () => {
@@ -27,7 +29,6 @@ const About = () => {
             <li>Authentic Sri Lankan recipes with step-by-step guides</li>
             <li>Fusion dishes and creative twists</li>
             <li>Cooking tips, kitchen hacks, and spice knowledge</li>
-            <li>AI-powered food assistant to guide your cooking</li>
           </ul>
 
           <p className="mt-4 font-weight-bold">
@@ -45,13 +46,12 @@ const About = () => {
         </div>
       </div>
 
-      <div className="text-center mt-5">
-        <button
-          className="btn btn-warning px-4 py-2"
-          onClick={() => navigate('/assistant')}>
-          ← Chat with Our Food AI
+      {/* <div className="text-center mt-5">
+        <button className="btn btn-AI" onClick={() => navigate('/recipes#ai-assistant')}>
+            ← Chat with Our Food AI
         </button>
-      </div>
+
+      </div> */}
     </div>
   );
 };

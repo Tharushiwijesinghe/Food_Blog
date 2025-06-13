@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-
 import './Recipes.css';
-import {useNavigate} from 'react-router-dom'; // Import useNavigate for navigation
-import mrimg from '../../assets/p6.jpg'; // Assuming you have a local image
-import himg from '../../assets/p21.jpg'; // Assuming you have a local image
-import cimg from '../../assets/p22.jpg'; // Assuming you have a local image
+import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
+// import Typewriter from "typewriter-effect";
+// import ReactMarkdown from "react-markdown";
+
+// Image imports
+import mrimg from '../../assets/p6.jpg';
+import himg from '../../assets/p21.jpg';
+import cimg from '../../assets/p22.jpg';
 import mbimg from '../../assets/p48.webp';
 import bmimg from '../../assets/p46.webp';
 import caimg from '../../assets/p47.webp';
@@ -29,7 +33,6 @@ import hdimg from '../../assets/p37.jpg';
 import swimg from '../../assets/p54.jpg';
 import pcsimg from '../../assets/p23.jpg';
 import cksimg from '../../assets/p58.webp';
-import { Link } from 'react-router-dom';
 
 const Recipes = () => {
   const navigate = useNavigate();
@@ -39,7 +42,11 @@ const Recipes = () => {
   const [question, setQuestion] = useState('');
   const [aiAnswer, setAiAnswer] = useState('');
 
-  // ✅ Static sample recipes
+  const [message, setMessage] = useState("");
+  const [botResponse, setBotResponse] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useEffect(() => {
     const sampleRecipes = [
       { title: 'Milk Rice', summary: 'A traditional Sri Lankan dish made with rice and coconut milk.', image: mrimg },
@@ -47,26 +54,25 @@ const Recipes = () => {
       { title: 'String Hoppers', summary: 'Traditional Sri Lankan dish made with rice flour.', image: cimg },
       { title: 'Pittu', summary: 'Traditional Sri Lankan dish made with rice flour.', image: pimg },
       { title: 'Rice & Curry', summary: 'Traditional Sri Lankan dish made with rice flour.', image: rcimg },
-      { title: 'Lamprais', summary: 'Traditional Sri Lankan dish made with rice flour.', image: lrimg },
-      { title: 'Koththu Roti', summary: 'Traditional Sri Lankan dish made with rice flour.', image: krimg },
-      { title: 'Coconut Roti', summary: 'Traditional Sri Lankan dish made with rice flour.', image: crimg },
+      { title: 'Lamprais', summary: 'Traditional Sri Lankan dish wrapped and baked in banana leaf.', image: lrimg },
+      { title: 'Koththu Roti', summary: 'Chopped roti stir-fried with vegetables and meat.', image: krimg },
+      { title: 'Coconut Roti', summary: 'Flatbread made with grated coconut.', image: crimg },
       { title: 'Sri Lankan Fish Abulthiyal', summary: 'A spicy and flavorful fish curry dish.', image: mbimg },
-      { title: 'Sri Lankan Brinjol Moju', summary: 'A spicy and flavorful eggplant dish.', image: bmimg }, // ✅ Corrected summary
-      { title: 'Sri Lankan Cashew Curry', summary: 'A spicy and flavorful cashew curry.', image: caimg },
-      { title: 'Sri Lankan Chicken Curry', summary: 'A spicy and flavorful chicken curry dish.', image: ccimg },
+      { title: 'Brinjal Moju', summary: 'A sweet and tangy eggplant pickle.', image: bmimg },
+      { title: 'Cashew Curry', summary: 'Rich curry made with cashew nuts.', image: caimg },
+      { title: 'Chicken Curry', summary: 'A spicy and flavorful chicken curry.', image: ccimg },
       { title: 'Prawns Curry', summary: 'A spicy and flavorful prawns curry dish.', image: pcimg },
       { title: 'Crab Curry', summary: 'A spicy and flavorful crab curry dish.', image: crcimg },
-      { title: 'Sri Lankan Coconut Sambol', summary: 'Made with grated coconut and spices.', image: csimg },
-      { title: 'Baby Jackfruit Curry', summary: 'A flavorful jackfruit curry.', image: bjimg },
-      { title: 'Sri Lankan Leaves Salad', summary: 'A fresh leaves-based salad.', image: lsimg },
-      { title: 'Salads', summary: 'A mix of fresh vegetables.', image: simg },
-      { title: 'Sri Lankan Short Eats', summary: 'Savory short eats variety.', image: seimg },
-      { title: 'Sri Lankan Kola Kanda', summary: 'A traditional herbal porridge.', image: klkimg },
-      { title: 'Sri Lankan Herbal Drinks', summary: 'Natural and herbal beverages.', image: hdimg },
+      { title: 'Coconut Sambol', summary: 'Side dish made with grated coconut.', image: csimg },
+      { title: 'Baby Jackfruit Curry', summary: 'Delicious jackfruit curry.', image: bjimg },
+      { title: 'Leaves Salad', summary: 'Healthy Sri Lankan leafy salad.', image: lsimg },
+      { title: 'Short Eats', summary: 'Sri Lankan savory snacks.', image: seimg },
+      { title: 'Kola Kanda', summary: 'Herbal porridge for breakfast.', image: klkimg },
+      { title: 'Herbal Drinks', summary: 'Natural, refreshing herbal drinks.', image: hdimg },
       { title: 'Sri Lankan Milk', summary: 'Local dairy drink.', image: mimg },
-      { title: 'Sri Lankan Special Coffee', summary: 'Spiced Sri Lankan coffee.', image: cfimg },
-      { title: 'Sri Lankan Special Tea', summary: 'Ceylon black and flavored teas.', image: timg },
-      { title: 'Sweets', summary: 'Sri Lankan traditional sweets.', image: swimg },
+      { title: 'Special Coffee', summary: 'Traditional Sri Lankan coffee.', image: cfimg },
+      { title: 'Special Tea', summary: 'Authentic Ceylon tea.', image: timg },
+      { title: 'Sweets', summary: 'Traditional sweet treats.', image: swimg },
       { title: 'Pan Cakes', summary: 'Sweet or savory Sri Lankan pancakes.', image: pcsimg },
       { title: 'Cakes', summary: 'Local cake varieties.', image: cksimg },
     ];
@@ -74,7 +80,6 @@ const Recipes = () => {
     setFiltered(sampleRecipes);
   }, []);
 
-  // ✅ Search handler
   const handleSearch = () => {
     const filteredRecipes = recipes.filter(recipe =>
       recipe.title.toLowerCase().includes(search.toLowerCase())
@@ -82,29 +87,33 @@ const Recipes = () => {
     setFiltered(filteredRecipes);
   };
 
-  // ✅ AI assistant - calling backend
-  const askAI = async () => {
+  const handleAsk = async () => {
+    if (!message.trim()) return;
+    setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/ask', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question }),
-      });
-
-      const data = await response.json();
-      setAiAnswer(data.answer);
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_BASE_URL}/api/chat`,
+        { message }
+      );
+      setBotResponse(response.data.reply);
+      setIsModalOpen(true);
     } catch (error) {
-      console.error('Error asking AI:', error);
-      setAiAnswer('Something went wrong. Please try again.');
+      console.error("Error:", error.message);
+      setBotResponse("Failed to get response from the bot. Please try again later.");
+      setIsModalOpen(true);
     }
+    setMessage("");
+    setLoading(false);
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") handleAsk();
+  };
 
   return (
     <div className="container py-5">
       <h2 className="text-center mb-4">Latest Recipes</h2>
 
-      {/* ✅ Search Bar with Button */}
       <div className="input-group mb-4">
         <input
           type="text"
@@ -116,7 +125,6 @@ const Recipes = () => {
         <button className="btn btn-outline-secondary" onClick={handleSearch}>Search</button>
       </div>
 
-      {/* ✅ Recipe Cards */}
       <div className="row">
         {filtered.map((recipe, index) => (
           <div className="col-lg-3 col-md-4 col-sm-6 mb-4" key={index}>
@@ -126,10 +134,7 @@ const Recipes = () => {
                 <h5 className="card-title">{recipe.title}</h5>
                 <p className="card-text">{recipe.summary}</p>
                 <div className="mt-auto d-flex justify-content-center">
-                  <Link
-                    to={`/recipe/${encodeURIComponent(recipe.title)}`}
-                    className="btn btn-warning"
-                  >
+                  <Link to={`/recipes/${encodeURIComponent(recipe.title)}`} className="btn btn-warning">
                     Read More
                   </Link>
                 </div>
@@ -138,30 +143,13 @@ const Recipes = () => {
           </div>
         ))}
       </div>
-
-      {/* ✅ Recipe Assistant Section */}
-      <div className="recipe-assistant-container mt-5">
-        <h3 className="assistant-title">Recipe Assistant</h3>
-        <input
-          type="text"
-          className="assistant-input"
-          placeholder="Ask me anything about Sri Lankan recipes..."
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-        />
-        <button className="assistant-button mt-3" onClick={askAI}>Ask</button>
-
-        {aiAnswer && (
-          <div className="assistant-answer mt-4">
-            <strong>AI:</strong> {aiAnswer}
-          </div>
-        )}
-
-        <p className="assistant-footer mt-3">What recipe are you craving today? I’ve got ideas!</p>
+      <div className="text-center mt-4">
+        <Link to="/admin" className="btn"> + Add New Recipe </Link>
       </div>
+
     </div>
+    
   );
 };
 
 export default Recipes;
-

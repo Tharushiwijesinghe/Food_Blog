@@ -1,0 +1,56 @@
+/* RecipeDetail.css */
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+  padding: 2rem;
+  background-color: #ffffff;
+}
+
+.card-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+pre.card-text {
+  white-space: pre-wrap;
+  background-color: #f8f9fa;
+  border-left: 4px solid #ffc107;
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #333;
+}
+
+.btn-warning {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  font-weight: 500;
+}

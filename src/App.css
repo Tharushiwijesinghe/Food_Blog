@@ -41,3 +41,6 @@
   color: #F58d17;
   font-weight: bold;
 }
+html {
+  scroll-behavior: smooth;
+}

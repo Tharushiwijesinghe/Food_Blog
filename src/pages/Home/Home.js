@@ -8,7 +8,7 @@ import img4 from '../../assets/p69.jpg';// The dark background hero image
 import { Link } from 'react-router-dom';
 
 
-const images = [bgImage,img1, img2, img3, img4];
+const images = [bgImage,img2, img3, img4, img1];
 
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

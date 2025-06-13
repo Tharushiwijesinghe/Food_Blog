@@ -73,7 +73,7 @@
 } */
 
 
-.assistant-input {
+/* .assistant-input {
   width: 100%;
   max-width: 500px;
   padding: 12px;
@@ -111,7 +111,7 @@
   font-size: 14px;
   color: #555;
   margin-top: 10px;
-}
+} */
 
 /* Fade in animation */
 @keyframes fadeIn {
@@ -119,3 +119,10 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+.btn{
+  background-color: #F58d17;
+  color: 'white';
+  font-weight: 'bold';
+  padding: '10px 20px';
+  border-radius: '8px';
+}

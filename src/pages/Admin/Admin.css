@@ -1,8 +1,23 @@
-.card-title {
-  font-weight: bold;
-  font-size: 1.25rem;
+body {
+  background-color: #f8f9fa;
 }
-.card-text {
-  font-size: 0.875rem;
-  color: #6c757d;
+
+form {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  background: white;
+  border-radius: 10px;
+}
+.btn-orange {
+  background-color: #f58d17;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-orange:hover {
+  background-color: #e67c10;
+  color: white;
 }
