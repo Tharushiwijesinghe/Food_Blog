@@ -18,7 +18,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className='quick-links col-md-4 mb-4'>
+          <div className='footer-quick-links col-md-4 mb-4'>
             <h5 className="footer-heading">Quick Links</h5>
             <ul className="list-unstyled footer-contact">
               <li><a href="/" className="footer-link">Home</a></li>
@@ -29,7 +29,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="col-md-4 mb-4">
+          <div className="footer-contact col-md-4 mb-4">
             <h5 className="footer-heading">Contact Us</h5>
             <ul className="list-unstyled footer-contact">
               <li><FaEnvelope className="me-2" /> lankantastofficial99@gmail.com</li>
