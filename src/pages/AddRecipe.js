@@ -66,7 +66,7 @@ const AddRecipe = () => {
 
       setTimeout(() => {
         navigate('/recipes');
-      }, 1500);
+      }, 1000);
 
     } catch (error) {
       console.error('Error submitting recipe:', error);

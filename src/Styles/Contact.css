@@ -1,22 +1,24 @@
 .contact-container{
-  background-image: url(../assets/p71.jpg); /* Adjust path as needed */
+  background-image: url(../assets/p62.jpg); /* Adjust path as needed */
   background-repeat: no-repeat;
   color: white;
   z-index: 1;
-  position: relative;
-  height: 100vh; /* Full viewport height */
+  height: 100vh; 
+  padding: 0;
+  margin: 0;
+  width: 100vw;/* Full viewport height */
+  background-size: cover;
 }
 
-.contact-container::before {
+/* .contact-container::before {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* 🔥 Dark overlay */
-  z-index: 0;
-}
+  /* background-color: rgba(0, 0, 0, 0.5);  
+} */
 
 .contact-page {
   max-width: 600px;
