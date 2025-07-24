@@ -6,6 +6,8 @@ import axios from 'axios';
 
 
 const Admin = () => {
+  const API_BASE = process.env.REACT_APP_API_BASE;
+  
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,7 +18,7 @@ const Admin = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:5000/api/admin/login', {
+      const res = await axios.post(`${API_BASE}/api/admin/login`, {
         email,
         password
       });

@@ -5,6 +5,8 @@ import '../Styles/AddRecipes.css';
 import { FaArrowLeft } from 'react-icons/fa';
 
 const AddRecipe = () => {
+  const API_BASE = process.env.REACT_APP_API_BASE;
+
   const { title } = useParams(); // for edit mode
   const [isEdit, setIsEdit] = useState(false);
   const [existingImage, setExistingImage] = useState(null);
@@ -26,7 +28,7 @@ const AddRecipe = () => {
 
   const fetchRecipeToEdit = async (title) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/recipes/${encodeURIComponent(title)}`);
+      const res = await axios.get(`${API_BASE}/api/recipes/${encodeURIComponent(title)}`);
       const recipe = res.data;
       setFormTitle(recipe.title);
       setContent(recipe.content);
@@ -52,13 +54,13 @@ const AddRecipe = () => {
 
       if (isEdit) {
         // Update existing recipe
-        await axios.put(`http://localhost:5000/api/recipes/${encodeURIComponent(title)}`, formData, {
+        await axios.put(`${API_BASE}/api/recipes/${encodeURIComponent(title)}`, formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
         setMessage('✅ Recipe updated successfully!');
       } else {
         // Add new recipe
-        await axios.post('http://localhost:5000/api/recipes', formData, {
+        await axios.post(`${API_BASE}/api/recipes`, formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
         setMessage('✅ Recipe added successfully!');

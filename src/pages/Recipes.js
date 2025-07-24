@@ -4,6 +4,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Recipes = () => {
+  const API_BASE = process.env.REACT_APP_API_BASE;
+  
   const [search, setSearch] = useState('');
   const [recipes, setRecipes] = useState([]);
   const [filtered, setFiltered] = useState([]);
@@ -17,7 +19,7 @@ const Recipes = () => {
 
   const fetchRecipes = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/recipes');
+      const res = await axios.get(`${API_BASE}/api/recipes`);
       setRecipes(res.data);
       setFiltered(res.data);
     } catch (err) {
@@ -35,7 +37,7 @@ const Recipes = () => {
   const handleDeleteClick = async (title) => {
     if (window.confirm('Are you sure you want to delete this recipe?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/recipes/${encodeURIComponent(title)}`);
+        await axios.delete(`${API_BASE}/api/recipes/${encodeURIComponent(title)}`);
         await fetchRecipes(); // Refresh the recipe list after deletion
         setFiltered(filtered.filter(recipe => recipe.title !== title));
       } catch (error) {
