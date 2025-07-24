@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Dropdown } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import './Admin.css';
+import '../Admin.css';
 // import AddRecipe from '../../Admin/AddRecipe';
 import AddRecipe from './AddRecipe';
 import { Link } from 'react-router-dom';

@@ -1,0 +1,57 @@
+.Admin-container{
+ background-image: url(../assets/p76.avif);
+ background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 100px;
+  height: 100vh;
+}
+
+form {
+  backdrop-filter: blur(6px); /* optional: glass effect */
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(236, 224, 224, 0.2);
+}
+
+.form-label{
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.admin-btn {
+  background-color: #f58d17;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  z-index: 1; /* Ensure text is above the overlay */
+  position: relative;
+}
+
+.admin-btn:hover {
+  background-color: #e67c10;
+  color: white;
+}
+
+.alert {
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.alert-success {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #842029;
+}
+

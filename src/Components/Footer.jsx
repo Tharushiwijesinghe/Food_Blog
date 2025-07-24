@@ -1,6 +1,6 @@
 import React from 'react';
-import './Footer.css';
-import image from '../../assets/logo.png';
+import '../Styles/Footer.css';
+import image from '../assets/logo.png';
 import { FaFacebookF, FaYoutube, FaPinterestP, FaEnvelope, FaWhatsapp, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Footer = () => {
@@ -13,14 +13,14 @@ const Footer = () => {
           <div className="col-md-4 mb-4 text-center">
             <img src={image} alt="food-blog Logo" className="footer-logo mb-2" />
             <p className="footer-description">
-              Your trusted source for agriculture insights, news, and guides.
+              Let's try sri lankan cusine with healthy snacks, and can prepare them on request, complemented by bamboo blinds and glass paintings.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div className="col-md-4 mb-4">
+          <div className='quick-links col-md-4 mb-4'>
             <h5 className="footer-heading">Quick Links</h5>
-            <ul className="list-unstyled">
+            <ul className="list-unstyled footer-contact">
               <li><a href="/" className="footer-link">Home</a></li>
               <li><a href="/recipes" className="footer-link">Recipies</a></li>
               <li><a href="/about" className="footer-link">About</a></li>
@@ -47,7 +47,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="text-center small text-muted">
+        <div className="footer-bottom ">
           &copy; {new Date().getFullYear()} LankanTasT. All rights reserved.
         </div>
       </div>

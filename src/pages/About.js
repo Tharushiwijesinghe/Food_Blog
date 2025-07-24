@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import profileImage from "../../assets/p65.avif";
-import './About.css';
+import profileImage from "../assets/p65.avif";
+import '../Styles/About.css'; // Adjust the path as necessary
 
 
 
@@ -10,8 +10,8 @@ const About = () => {
 
   return (
     <div className="container py-5 about-page">
-      <div className="row align-items-center">
-        <div className="col-md-6">
+      <div className="row align-items-center about-container">
+        <div className="col-md-6 ">
           <h2 className="mb-3">Welcome to LankanTast 🇱🇰</h2>
           <p>
             At <strong>LankanTast</strong>, we're passionate about bringing the vibrant flavors of Sri Lanka

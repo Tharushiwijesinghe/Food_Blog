@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './Contact.css';
-import axios from 'axios';
+import '../Styles/Contact.css';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -10,36 +10,35 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // You can integrate backend/email service later
-    try{
-      await axios.post('http://localhost:5000/api/contact', formData);
-      setNotification({type:'success', text:'✅ Message sent successfully!'})
+
+    emailjs.send(
+      'service_dk97pko',      // e.g., 'gmail'
+      'template_7642zwn',     // e.g., 'contact_form_template'
+      formData,               // your form data
+      'WVDoE30Gx-jIdMPya'       // e.g., 'abcd123456xyz'
+    )
+    .then((response) => {
+      console.log('SUCCESS!', response.status, response.text);
+      setNotification({ type: 'success', text: '✅ Message sent successfully!' });
       setFormData({ name: '', email: '', message: '' });
-    } catch(error){
-      console.error('Failed to send message:', error);
-       setNotification({type:'error', text:'❌ Message sending failed... Please try again...'})
-    }
-    setTimeout(() => setNotification(null), 4000); 
+      }, (err) => {
+        console.error('FAILED...', err);
+        setNotification({ type: 'error', text: '❌ Failed to send message.' });
+      });
+
+    setTimeout(() => setNotification(null), 4000);
   };
-
   return (
-    // <form onSubmit={handleSubmit}>
-    //   <input name="name" onChange={handleChange} value={formData.name} placeholder="Your Name" required />
-    //   <input name="email" onChange={handleChange} value={formData.email} placeholder="Your Email" required />
-    //   <textarea name="message" onChange={handleChange} value={formData.message} placeholder="Message" required />
-    //   <button type="submit">Send</button>
-    // </form>
-    <div className="contact-page">
-      <h2>Contact Us</h2>
-
+    <div className="contact-container py-5 d-flex flex-column align-items-center"> 
+     <div className="contact-page">
+     <h2>Contact Us</h2>
       {notification && (
         <div className={`notification ${notification.type}`}>
           {notification.text}
         </div>
       )}
-
       <form onSubmit={handleSubmit} className="contact-form">
         <input
           name="name"
@@ -66,6 +65,7 @@ const Contact = () => {
         <button type="submit">Send</button>
       </form>
     </div>
+  </div>
   );
 };
 

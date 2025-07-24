@@ -1,4 +1,11 @@
+.text-center{
+  color: #874a05;
+  font-weight: 600;
+  font-size: 3rem;
+  font-family: 'Dancing Script', cursive;
+  font-style: italic;
 
+}
 .card {
   border-radius: 15px;
   overflow: hidden;
@@ -24,16 +31,29 @@
 .card-text {
   color: #555;
   font-size: 0.95rem;
-  min-height: 80px;
+  min-height: 3.6em; /* Optional: keeps height consistent */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.3s ease;
+}
+
+.card-text.expanded {
+  -webkit-line-clamp: unset;
+  max-height: none;
+  overflow: visible;
 }
 
 .RMbtn {
-  background-color: #F58d17;
+  background-color: #874a05;
   color: #fff;
   font-weight: 500;
   border-radius: 8px;
   padding: 6px 12px;
   text-decoration: none;
+  border: none;
 }
 
 .RMbtn:hover {
@@ -47,7 +67,7 @@
   border-radius: 12px;
   text-align: center;
   animation: fadeIn 1.5s ease-in;
-  box-shadow: #F58d17;
+  box-shadow: #3a2a18;
 }
 .assistant-title {
   overflow: hidden;
@@ -61,68 +81,42 @@
   font-weight: bold;
   font-size: 24px;
 }
+.dropdown-menu{
+  background: white !important;
+}
 
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
 }
 
-/* @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #F58d17 }
-} */
-
-
-/* .assistant-input {
-  width: 100%;
-  max-width: 500px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  outline: none;
-  margin: auto;
-  display: block;
-}
-
-.assistant-button {
-  background-color: #F58d17;
-  color: white;
-  border: none;
-  padding: 12px 32px;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-.assistant-button:hover {
-  background-color: #F58d17;
-}
-
-.assistant-answer {
-  background-color: #e0f7e9;
-  padding: 15px;
-  border-radius: 10px;
-  color: #333;
-  font-size: 16px;
-}
-
-.assistant-footer {
-  font-size: 14px;
-  color: #555;
-  margin-top: 10px;
-} */
-
-/* Fade in animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.btn{
-  background-color: #F58d17;
-  color: 'white';
-  font-weight: 'bold';
-  padding: '10px 20px';
-  border-radius: '8px';
+.Add-btn{
+  background-color: #f58d17;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  z-index: 1; /* Ensure text is above the overlay */
+  position: relative;
+}
+
+.delete-btn {
+  background-color: #c8b6b6 !important;
+  color: #ffffff !important;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
 }
