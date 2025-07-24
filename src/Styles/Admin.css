@@ -1,22 +1,34 @@
-.Admin-container{
- background-image: url(../assets/p76.avif);
- background-repeat: no-repeat;
+.Admin-container {
+  background-image: url(../assets/p76.avif);
+  background-repeat: no-repeat;
   background-size: cover;
-  margin-top: 100px;
+  background-position: center;
+  margin-top: 0px;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 form {
-  backdrop-filter: blur(6px); /* optional: glass effect */
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(236, 224, 224, 0.2);
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
-.form-label{
+.form-label {
   font-weight: bold;
   color: #ffffff;
   margin-bottom: 8px;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 10px;
 }
 
 .admin-btn {
@@ -29,19 +41,19 @@ form {
   cursor: pointer;
   font-size: 16px;
   width: 100%;
-  z-index: 1; /* Ensure text is above the overlay */
-  position: relative;
+  transition: background-color 0.3s ease;
 }
 
 .admin-btn:hover {
   background-color: #e67c10;
-  color: white;
 }
 
 .alert {
-  padding: 10px;
+  padding: 12px;
   border-radius: 6px;
   margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: 500;
   text-align: center;
 }
 
@@ -55,3 +67,13 @@ form {
   color: #842029;
 }
 
+@media (max-width: 768px) {
+  .Admin-container {
+    padding: 20px;
+    margin-top: 60px;
+  }
+
+  form {
+    padding: 20px;
+  }
+}

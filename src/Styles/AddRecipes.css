@@ -1,3 +1,34 @@
+.add-container {
+  height: 100vh;
+  width: 100vw;
+  margin: auto;
+  padding: 40px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.add-container h3 {
+  color: #874a05;
+  font-weight: 600;
+  font-size: 2.5rem;
+  font-family: 'Dancing Script', cursive;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-add{
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
 .Add-btn {
   background-color: #f58d17;
   color: #ffffff;
@@ -8,27 +39,42 @@
   cursor: pointer;
   font-size: 16px;
   width: 100%;
-  z-index: 1; /* Ensure text is above the overlay */
-  position: relative;
-}
-.add-container{
-  height: 100vh;
-  width: 100vw;
-}
-.add-container h3 {
-  color: #874a05;
-  font-weight: 600;
-  font-size: 3rem;
-  font-family: 'Dancing Script', cursive;
-  font-style: italic;
-  text-align: center;
-
+  transition: background-color 0.3s ease;
 }
 
-.backbtn{
-  position: absolute;
-  bottom: 40px;
+.Add-btn:hover {
+  background-color: #e07c10;
+}
+
+.backbtn {
+  position: fixed;
+  bottom: 20px;
   left: 20px;
-  z-index: 1000; /* Ensure it is above other elements */
+  z-index: 1000;
   color: #f58d17;
+}
+
+.message {
+  font-weight: 600;
+  text-align: center;
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  .add-container {
+    margin-top: 20px;
+    padding: 20px 15px;
+  }
+
+  .add-container h3 {
+    font-size: 2rem;
+  }
+
+  .backbtn {
+    font-size: 1.25rem;
+  }
 }

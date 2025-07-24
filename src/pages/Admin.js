@@ -73,6 +73,12 @@ const Admin = () => {
             required 
           />
         </div>
+        {message && (
+          <div className={`alert ${isError ? 'alert-danger' : 'alert-success'}`}>
+            {message}
+          </div>
+        )}
+
 
         <button type="submit" className="admin-btn ">Login</button>
       </form>

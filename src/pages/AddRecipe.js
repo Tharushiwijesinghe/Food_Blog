@@ -1,97 +1,3 @@
-// // AddRecipe.js
-// import React, { useState } from 'react';
-// import axios from 'axios';
-// import {Link , useNavigate} from 'react-router-dom';
-// import '../Styles/AddRecipes.css'; // Optional custom styling
-// import { FaArrowLeft } from 'react-icons/fa';
-
-
-// const AddRecipe = () => {
-//   const [title, setTitle] = useState('');
-//   const [content, setContent] = useState('');
-//   const [file, setFile] = useState(null);
-//   const [message, setMessage] = useState('');
-  
-//   const navigate = useNavigate();
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     if(!title || !content || !file) {
-//       setMessage('All fields are required');
-//       return;
-//     }
-
-//     try {
-//       const formData = new FormData();
-//       formData.append('title', title);
-//       formData.append('content', content);
-//       formData.append('file', file);
-
-//       const response = await axios.post('http://localhost:5000/api/recipes', formData, {
-//         headers: {
-//           'Content-Type': 'multipart/form-data',
-//         },
-//       });
-//         setMessage('Recipe added successfully!');
-//         setTitle('');
-//         setContent('');
-//         setFile(null);
-//         fetchRecipes(); // Fetch updated recipes
-
-//         setTimeout(() => {
-//           setMessage('');
-//         }, 3000);
-//       } catch (error) {
-//         console.error('Error adding recipe:', error);
-//         setMessage(error.response?.data?.message || '❌ Failed to add recipe');
-//       }
-//     };
-
-//     const fetchRecipes = async () => {
-//       try {
-//         const response = await axios.get('http://localhost:5000/api/recipes');
-//         console.log('Fetched recipes:', response.data);
-//       } catch (error) {
-//         console.error('Error fetching recipes:', error);
-//       }
-//     };
-
-
-//   return (
-//     <div className="add-container py-5">
-//       <h3>Add New Recipe</h3>
-//       <form onSubmit={handleSubmit} encType="multipart/form-data">
-//         <div className="mb-3">
-//           <label className="form-label">Title</label>
-//           <input type="text" placeholder="Recipe Title" className="form-control" required value={title} onChange={e => setTitle(e.target.value)} />
-//         </div>
-
-//         <div className="mb-3">
-//           <label className="form-label">Content</label>
-//           <textarea className="form-control" placeholder="Recipe Content" rows="4" value={content} onChange={e => setContent(e.target.value)} />
-//         </div>
-
-//         <div className="mb-3">
-//           <label className="form-label">Upload Image or PDF</label>
-//           <input type="file" className="form-control" onChange={e => setFile(e.target.files[0])} />
-//         </div>
-
-//        <button type="submit" className="Add-btn ">Add Recipe</button>
-//       {message && <p className="message mt-2">{message}</p>}
-//       </form>
-//       <div className="backbtn d-flex align-items-center mb-3">
-//         <FaArrowLeft
-//           style={{ cursor: 'pointer', color: '#ffc107', fontSize: '1.5rem' }}
-//           onClick={() => navigate('/recipes')}
-//         />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AddRecipe;
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -171,7 +77,7 @@ const AddRecipe = () => {
   return (
     <div className="add-container py-5">
       <h3>{isEdit ? 'Edit Recipe' : 'Add New Recipe'}</h3>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <form onSubmit={handleSubmit} className= "form-add" encType="multipart/form-data">
         <div className="mb-3">
           <label className="form-label">Title</label>
           <input

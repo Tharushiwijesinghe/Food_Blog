@@ -6,7 +6,7 @@ import { FaFacebookF, FaYoutube, FaPinterestP, FaEnvelope, FaWhatsapp, FaMapMark
 const Footer = () => {
   return (
     <footer className="footer-container">
-      <div className="footer-top border-top border-warning"></div>
+      <div className="footer-top border-top "></div>
       <div className="container text-center text-md-start py-5">
         <div className="row">
           {/* Logo & Description */}
@@ -22,7 +22,7 @@ const Footer = () => {
             <h5 className="footer-heading">Quick Links</h5>
             <ul className="list-unstyled footer-contact">
               <li><a href="/" className="footer-link">Home</a></li>
-              <li><a href="/recipes" className="footer-link">Recipies</a></li>
+              <li><a href="/recipes" className="footer-link">Recipes</a></li>
               <li><a href="/about" className="footer-link">About</a></li>
               <li><a href="/contact" className="footer-link">Contact</a></li>
             </ul>
@@ -47,8 +47,9 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="footer-bottom ">
-          &copy; {new Date().getFullYear()} LankanTasT. All rights reserved.
+        <div className="footer-bottom">
+          <hr className="footer-divider" />
+          <p>© 2024 Your Company. All rights reserved.</p>
         </div>
       </div>
     </footer>
