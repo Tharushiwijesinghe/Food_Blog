@@ -15,6 +15,13 @@
   font-weight: bold;
 }
 
+.about-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-family: 'Georgia', serif;
+  font-style: normal;
+}
+
 .about-page ul {
   list-style-type: disc;
   padding-left: 20px;
