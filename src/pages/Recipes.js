@@ -17,16 +17,26 @@ const Recipes = () => {
     fetchRecipes();
   }, []);
 
-  const fetchRecipes = async () => {
-    try {
-      const res = await axios.get(`${API_BASE}/api/recipes`);
-      console.log('API response:', res.data);
+const fetchRecipes = async () => {
+  try {
+    const res = await axios.get(`${API_BASE}/api/recipes`);
+    console.log('API response:', res.data);
+
+    if (Array.isArray(res.data)) {
       setRecipes(res.data);
       setFiltered(res.data);
-    } catch (err) {
-      console.error("Failed to fetch recipes:", err);
+    } else {
+      console.warn("API did not return an array. Got:", res.data);
+      setRecipes([]);
+      setFiltered([]);
     }
-  };
+  } catch (err) {
+    console.error("Failed to fetch recipes:", err);
+    setRecipes([]);
+    setFiltered([]);
+  }
+};
+
 
   const handleSearch = () => {
     const filteredRecipes = recipes.filter(recipe =>
