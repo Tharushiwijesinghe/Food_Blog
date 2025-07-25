@@ -20,6 +20,7 @@ const Recipes = () => {
   const fetchRecipes = async () => {
     try {
       const res = await axios.get(`${API_BASE}/api/recipes`);
+      console.log('API response:', res.data);
       setRecipes(res.data);
       setFiltered(res.data);
     } catch (err) {
@@ -63,7 +64,7 @@ const Recipes = () => {
       </div>
 
       <div className="row">
-       {filtered.map((recipe) => {
+       {Array.isArray(filtered) && filtered.map((recipe)  => {
   const isExpanded = expandedCards[recipe.title] || false;
 
   const toggleExpanded = () => {

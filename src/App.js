@@ -8,7 +8,7 @@ import Recipes from './pages/Recipes';
 import Admin from './pages/Admin';// Adjust the path as necessary
 import Footer from './Components/Footer';
 // import RecipeDetail from './pages/RecipeDetail';
-import AdminRecipes from './pages/Admin';
+// import AdminRecipes from './pages/AdminRecipes';
 import AddRecipe from './pages/AddRecipe';
 
 import { Navigate } from 'react-router-dom';
@@ -23,7 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/recipes" element={<Recipes />} />
           {/* <Route path="/recipes/:title" element={<RecipeDetail />} /> */}
-          <Route path="/admin/recipes" element={<AdminRecipes />} />
+          {/* <Route path="/admin/recipes" element={<AdminRecipes />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={<Admin />} />
