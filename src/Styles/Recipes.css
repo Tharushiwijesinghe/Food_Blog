@@ -181,3 +181,63 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@media (max-width: 576px) {
+  .text-center {
+    font-size: 2rem; /* Smaller heading on mobile */
+    padding: 0 10px;
+  }
+
+  .card-img-top {
+    height: 150px; /* Slightly smaller image */
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-text {
+    font-size: 0.85rem;
+  }
+
+  .RMbtn {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    width: 100%;
+  }
+
+  .recipe-assistant-container {
+    padding: 20px 15px;
+    font-size: 0.95rem;
+  }
+
+  .assistant-title {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .Add-btn,
+  .delete-btn {
+    font-size: 0.85rem;
+    padding: 10px 14px;
+    width: 100%;
+  }
+
+  .input-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .input-group input {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .dropdown-menu {
+    font-size: 0.9rem;
+  }
+
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}

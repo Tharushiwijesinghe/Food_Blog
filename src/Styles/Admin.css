@@ -3,11 +3,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin-top: 0px;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 form {
@@ -67,13 +67,29 @@ form {
   color: #842029;
 }
 
+
 @media (max-width: 768px) {
   .Admin-container {
+    background-size: cover;
+    background-position: center;
     padding: 20px;
-    margin-top: 60px;
   }
 
   form {
     padding: 20px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .Admin-container {
+    background-size: cover;
+    background-position: center ;
+    background-repeat: no-repeat;
+    padding: 15px;
+  }
+
+  form {
+    padding: 15px;
   }
 }

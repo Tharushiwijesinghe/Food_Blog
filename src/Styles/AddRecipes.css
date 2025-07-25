@@ -78,3 +78,67 @@
     font-size: 1.25rem;
   }
 }
+/* Existing desktop styles (unchanged) above this */
+
+/* Tablet view (max-width: 992px) */
+@media (max-width: 992px) {
+  .add-container {
+    margin-top: 40px;
+    padding: 30px 20px;
+    height: auto; /* Allow content to expand */
+  }
+
+  .add-container h3 {
+    font-size: 2.2rem;
+  }
+
+  .form-add {
+    padding: 25px;
+    max-width: 100%;
+  }
+
+  .Add-btn {
+    font-size: 15px;
+    padding: 10px 16px;
+  }
+
+  .backbtn {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile view (max-width: 576px) */
+@media (max-width: 576px) {
+  .add-container {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 20px 10px;
+    border-radius: 8px;
+    height: auto;
+  }
+
+  .add-container h3 {
+    font-size: 1.7rem;
+  }
+
+  .form-add {
+    padding: 20px;
+    box-shadow: none; /* Less shadow on mobile */
+  }
+
+  .Add-btn {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+
+  .message {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .backbtn {
+    font-size: 1rem;
+    bottom: 15px;
+    left: 15px;
+  }
+}

@@ -8,6 +8,7 @@
   z-index: 1000;
 }
 
+
 .navbar-brand span {
   font-weight: 700;
   font-size: 1.25rem;
@@ -31,4 +32,53 @@
   color: #cf7d1e !important;
   border-bottom: 2px solid #F58d17;
   padding-bottom: 2px;
+}
+@media (max-width: 1024px) {
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    margin-left: 0.75rem;
+  }
+
+  .navbar-brand span {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.6) !important; /* optional for visibility */
+    position: fixed;
+  }
+
+  .navbar-nav {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    display: block;
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+  .navbar-toggler {
+    border: none;
+    background-color: transparent;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' ...");
+    /* or keep Bootstrap's default */
+  }
+
+  .active-link {
+    border-bottom: none;
+    background-color: #F58d17;
+    color: #fff !important;
+    border-radius: 4px;
+    padding: 6px;
+  }
 }
