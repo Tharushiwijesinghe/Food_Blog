@@ -93,3 +93,36 @@ form {
     padding: 15px;
   }
 }
+
+
+/* Target the expanded navbar on mobile */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 56px; /* adjust based on navbar height */
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background:none;
+    padding-top: 1rem;
+    z-index: 1050;
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .navbar-collapse.collapse:not(.show) {
+    display: none; /* hide when collapsed */
+  }
+
+  .navbar-collapse a {
+    color: #f58d17;
+    font-weight: 600;
+    padding: 10px 20px;
+    display: block;
+  }
+
+  /* Optional: blur main content when menu is open */
+  body.nav-open .Admin-container {
+    filter: blur(2px);
+  }
+}

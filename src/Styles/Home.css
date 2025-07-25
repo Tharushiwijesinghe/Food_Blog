@@ -137,6 +137,7 @@
     height: 70vh;
     background-size: cover;
     background-position: center center;
+    position: relative;
   }
 
   .content {

@@ -60,7 +60,8 @@ const fetchRecipes = async () => {
   
    return (
     <div className="container py-5">
-      <h2 className="text-center mb-4">Latest Recipes</h2>
+      <div className="recipe-container">
+         <h2 className="text-center mb-4">Latest Recipes</h2>
 
       <div className="input-group mb-4">
         <input
@@ -72,6 +73,8 @@ const fetchRecipes = async () => {
         />
         <button className="btn btn-outline-secondary" onClick={handleSearch}>Search</button>
       </div>
+      </div>
+     
 
       <div className="row">
        {Array.isArray(filtered) && filtered.map((recipe)  => {

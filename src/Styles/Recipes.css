@@ -1,3 +1,6 @@
+.recipe-container{
+ margin-top: 70px;
+}
 .text-center{
   color: #874a05;
   font-weight: 600;
@@ -139,6 +142,7 @@
     flex: 0 0 100%;
     max-width: 100%;
   }
+
 }
 
 @media (max-width: 576px) {
@@ -239,5 +243,9 @@
   .container {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
+  }
+
+  .main-content {
+    margin-top: 90px; /* More spacing if mobile navbar is taller */
   }
 }

@@ -4,11 +4,12 @@
   padding: 30px;
   color: #000000;
   font-family: 'Dancing Script', cursive;
-  margin-top: 50px;
+  
   height: 100vh; /* Full viewport height */
 }
 
 .about-page h2 {
+  margin-top: 70px;
   color: #874a05;
   margin-bottom: 100px;
   font-weight: bold;

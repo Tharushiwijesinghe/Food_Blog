@@ -1,6 +1,7 @@
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import '../Styles/Admin.css'; // Optional custom styling
 import axios from 'axios';
 
@@ -41,6 +42,24 @@ const Admin = () => {
       setIsError(true);
     }
   };
+  // Optional toggle body class for blur effect
+useEffect(() => {
+  const toggler = document.querySelector('.navbar-toggler');
+  const collapse = document.querySelector('.navbar-collapse');
+
+  const toggleBodyClass = () => {
+    if (collapse.classList.contains('show')) {
+      document.body.classList.add('nav-open');
+    } else {
+      document.body.classList.remove('nav-open');
+    }
+  };
+
+  toggler?.addEventListener('click', () => {
+    setTimeout(toggleBodyClass, 300); // wait for collapse transition
+  });
+}, []);
+
 
   return (
     <div className="Admin-container py-5 d-flex flex-column align-items-center">
