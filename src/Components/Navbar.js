@@ -1,9 +1,17 @@
-import React from 'react';
+import React ,{useRef} from 'react';
 import { Link } from 'react-router-dom';
 import image from '../assets/logo.png'; // Adjust the path as necessary
 import '../Styles/Navbar.css'; // Adjust the path as necessary
 
 const Navbar = () => {
+      const bsCollapse = window.bootstrap?.Collapse;
+    if (navbarCollapseRef.current && bsCollapse) {
+      const collapseInstance = bsCollapse.getInstance(navbarCollapseRef.current);
+      if (collapseInstance) {
+        collapseInstance.hide(); // Collapse the menu
+      }
+    }
+  };
   return (
     <nav className="navbar navbar-expand-lg fixed-top ">
       <div className="container">
