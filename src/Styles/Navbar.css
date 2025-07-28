@@ -9,9 +9,6 @@
 }
 
 
-
-
-
 .navbar-brand span {
   font-weight: 700;
   font-size: 1.25rem;
@@ -29,6 +26,10 @@
 
 .nav-link:hover {
   color: #b08657 !important;
+}
+
+.admin-text{
+  color: #F58d17 !important;
 }
 
 .active-link {

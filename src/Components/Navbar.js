@@ -1,101 +1,22 @@
-// import React, { useRef } from 'react';
-// import { Link } from 'react-router-dom';
-// import image from '../assets/logo.png';
-// import '../Styles/Navbar.css';
-
-// const Navbar = () => {
-//   const navbarCollapseRef = useRef(null);
-
-//   const closeNavbar = () => {
-//       let collapseInstance = bsCollapse.getInstance(navbarCollapseRef.current);
-//       if (!collapseInstance) {
-//         collapseInstance = new bsCollapse(navbarCollapseRef.current, { toggle: false });
-//       }
-//       collapseInstance.hide();
-//     }
-//   };
-
-//   return (
-//     <nav className="navbar navbar-expand-lg fixed-top">
-//       <div className="container">
-//         <Link className="navbar-brand d-flex align-items-center" to="/" onClick={closeNavbar}>
-//           <img
-//             src={image}
-//             alt="FoodieBlog Logo"
-//             width="40"
-//             height="40"
-//             className="me-2"
-//           />
-//           <span>LankanTaST</span>
-//         </Link>
-
-//         <button
-//           className="navbar-toggler"
-//           type="button"
-//           data-bs-toggle="collapse"
-//           data-bs-target="#navbarNav"
-//         >
-//           <span className="navbar-toggler-icon"></span>
-//         </button>
-
-//         <div className="collapse navbar-collapse" id="navbarNav" ref={navbarCollapseRef}>
-//           <ul className="navbar-nav ms-auto">
-//             <li className="nav-item">
-//               <Link className="nav-link" to="/" onClick={closeNavbar}>Home</Link>
-//             </li>
-//             <li className="nav-item">
-//               <Link className="nav-link" to="/recipes" onClick={closeNavbar}>Recipes</Link>
-//             </li>
-//             <li className="nav-item">
-//               <Link className="nav-link" to="/about" onClick={closeNavbar}>About</Link>
-//             </li>
-//             <li className="nav-item">
-//               <Link className="nav-link" to="/contact" onClick={closeNavbar}>Contact</Link>
-//             </li>
-//             <li className="nav-item">
-//               <Link className="nav-link" to="/admin" onClick={closeNavbar}>Admin</Link>
-//             </li>
-//           </ul>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
-import React, { useRef , useState} from 'react';
+import React, { useState , useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import image from '../assets/logo.png';
 import '../Styles/Navbar.css';
 
-const Navbar = () => {
-    const [isNavOpen, setIsNavOpen] = useState(false);
+export const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleToggle = () => {
-    setIsNavOpen(!isNavOpen);
-  };
-
-  const handleClose = () => {
-    setIsNavOpen(false);
-  };
-  const navbarCollapseRef = useRef(null);
-
-  const closeNavbar = () => {
-    const bsCollapse = window.bootstrap?.Collapse;
-    if (navbarCollapseRef.current && bsCollapse) {
-      let collapseInstance = bsCollapse.getInstance(navbarCollapseRef.current);
-      if (!collapseInstance) {
-        collapseInstance = new bsCollapse(navbarCollapseRef.current, { toggle: false });
-      }
-      collapseInstance.hide();
-    }
-  };
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 10); 
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg fixed-top">
-      <div className="container">
-        <Link className="navbar-brand d-flex align-items-center" to="/" onClick={closeNavbar}>
+    <nav className={`navbar fixed-top navbar-expand-lg ${isScrolled ? 'navbar-scrolled' : ''} ${isExpanded ? 'navbar-expanded' : ''}`}>
+      <div className="container-fluid px-4 py-2">
+        <Link className="navbar-brand d-flex align-items-center" to="/">
           <img
             src={image}
             alt="FoodieBlog Logo"
@@ -109,28 +30,31 @@ const Navbar = () => {
         <button
           className="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
+          onClick={() => setIsExpanded(!isExpanded)}
+          aria-expanded={isExpanded}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarNav" ref={navbarCollapseRef}>
-          <ul className="navbar-nav ms-auto">
+        <div className={`collapse navbar-collapse ${isExpanded ? 'show' : ''}`} id="navbarNav">
+          <ul className="navbar-nav d-flex align-items-center justify-content-center ms-auto mb-2 mb-lg-0 gap-3">
+            {[
+              { to: "/", text: "Home" },
+              { to: "/recipes", text: "Recipes" },
+              { to: "/about", text: "About" },
+              { to: "/contact", text: "Contact" },
+            ].map(({ to, text, icon }) => (
+              <li className="nav-item" key={to}>
+                <Link to={to} className="nav-link" onClick={() => setIsExpanded(false)}>
+                  <i className={`${icon} me-2`}></i>{text}
+                </Link>
+              </li>
+            ))}
+
             <li className="nav-item">
-              <Link className="nav-link" to="/" onClick={closeNavbar}>Home</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/recipes" onClick={closeNavbar}>Recipes</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/about" onClick={closeNavbar}>About</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/contact" onClick={closeNavbar}>Contact</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/admin" onClick={closeNavbar}>Admin</Link>
+              <Link to="/admin" className="admin-text login-btn" onClick={() => setIsExpanded(false)}>
+                <i className="fas fa-sign-in-alt me-2"></i>Admin
+              </Link>
             </li>
           </ul>
         </div>
