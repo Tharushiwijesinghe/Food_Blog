@@ -9,6 +9,9 @@
 }
 
 
+
+
+
 .navbar-brand span {
   font-weight: 700;
   font-size: 1.25rem;
@@ -81,4 +84,7 @@
     border-radius: 4px;
     padding: 6px;
   }
+}
+
+@media (max-width: 768px) {
 }

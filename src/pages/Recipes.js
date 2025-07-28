@@ -63,15 +63,15 @@ const fetchRecipes = async () => {
       <div className="recipe-container">
          <h2 className="text-center mb-4">Latest Recipes</h2>
 
-      <div className="input-group mb-4">
+      <div className="input-group mb-4 custom-search-group">
         <input
           type="text"
-          className="form-control"
+          className="form-control search-input"
           placeholder="Search recipes..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button className="btn btn-outline-secondary" onClick={handleSearch}>Search</button>
+        <button className="btn btn-outline-secondary search-button" onClick={handleSearch}>Search</button>
       </div>
       </div>
      
