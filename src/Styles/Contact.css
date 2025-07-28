@@ -113,7 +113,8 @@
     background-size: cover;
     min-height: auto;  /* allow height to auto adjust */
     padding: 20px 15px;
-    width: 100%;       /* make sure it uses full width */
+    width: 100%;      
+    height: 100vh;
   }
 }
 
@@ -124,5 +125,6 @@
     min-height: auto;
     padding: 15px 10px;
     width: 100%;
+    height: 100vh;
   }
 }
