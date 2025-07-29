@@ -47,13 +47,6 @@ const About = () => {
           />
         </div>
       </div>
-
-      {/* <div className="text-center mt-5">
-        <button className="btn btn-AI" onClick={() => navigate('/recipes#ai-assistant')}>
-            ← Chat with Our Food AI
-        </button>
-
-      </div> */}
     </div>
   );
 };

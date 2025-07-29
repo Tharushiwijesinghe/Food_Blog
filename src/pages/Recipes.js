@@ -61,8 +61,7 @@ const fetchRecipes = async () => {
    return (
     <div className="container py-5">
       <div className="recipe-container">
-         <h2 className="text-center mb-4">Latest Recipes</h2>
-
+      <h2 className="text-center mb-4">Latest Recipes</h2>
       <div className="input-group mb-4 custom-search-group">
         <input
           type="text"
@@ -74,8 +73,6 @@ const fetchRecipes = async () => {
         <button className="btn btn-outline-secondary search-button" onClick={handleSearch}>Search</button>
       </div>
       </div>
-     
-
       <div className="row">
        {Array.isArray(filtered) && filtered.map((recipe)  => {
   const isExpanded = expandedCards[recipe.title] || false;
@@ -130,8 +127,7 @@ const fetchRecipes = async () => {
     </div>
   );
 })}
-
-      </div>
+  </div>
       <div className="text-center mt-4">
         <Link to="/admin" className="Add-btn">Add New Recipe</Link>
       </div>

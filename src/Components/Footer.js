@@ -49,7 +49,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="footer-bottom">
           <hr className="footer-divider" />
-          <p>© 2024 Your Company. All rights reserved.</p>
+          <p>© 2025 LankanTaST. All rights reserved.</p>
         </div>
       </div>
     </footer>
