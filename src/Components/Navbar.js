@@ -51,11 +51,11 @@ export const Navbar = () => {
               </li>
             ))}
 
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link to="/admin" className="admin-text login-btn" onClick={() => setIsExpanded(false)}>
                 <i className="fas fa-sign-in-alt me-2"></i>Admin
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
